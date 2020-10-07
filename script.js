@@ -15,7 +15,7 @@ $(document).ready(function () {
     var newTime = [];
     newTime.push(moment().hour(time).minutes("00").format("hh:mm A"));
 
-    // AddING Elements
+    // Adding elements
     var newDiv = $("<div>");
     newDiv.addClass("input-group input-group-lg pb-1");
 
@@ -32,7 +32,7 @@ $(document).ready(function () {
     var icon = $("<i>");
     icon.addClass("far fa-save");
 
-    // appends here:
+    // appending 
     $(".container").append(newDiv);
     newDiv.append(addSpan);
     newDiv.append(inputText);
@@ -41,6 +41,7 @@ $(document).ready(function () {
 
     addSpan.text(newTime);
 
+    // statement for past, present and future
     if (time < currentTime) {
       inputText.addClass("past");
     } else if (time === currentTime) {
@@ -52,47 +53,28 @@ $(document).ready(function () {
       inputText.addClass("future");
     }
 
-    // $(".saveBtn").click(function (event) {
-    //   event.preventDefault();
-    //   var formValue = $(this).siblings(".form-control").val();
-    //   console.log(formValue );
-    //   var listItem = $(this).siblings("input").attr("class").split(" ")[2];
-
-    //   localStorage.setItem(listItem, formValue);
-    // });
   });
 
+//   Save button
   $(".saveBtn").click(function (event) {
     event.preventDefault();
     var formValue = $(this).siblings(".form-control").val();
-
     var listItem = $(this).siblings("input").attr("class").split(" ")[2];
-    
     localStorage.setItem(listItem, formValue);
   });
 
   //Initial Functions
+
+    // localStorage.getItem(listItem, formValue);
   $(".9").val(localStorage.getItem("9"));
   $(".10").val(localStorage.getItem("10"));
+  $(".11").val(localStorage.getItem("11"));
+  $(".12").val(localStorage.getItem("12"));
+  $(".13").val(localStorage.getItem("13"));
+  $(".14").val(localStorage.getItem("14"));
+  $(".15").val(localStorage.getItem("15"));
+  $(".16").val(localStorage.getItem("16"));
+  $(".17").val(localStorage.getItem("17"));
 });
 
-// // Start local
-// var x = [9, 10, 11, 12, 1, 2, 3, 4, 5];
-// // Test loop:
 
-// for (var i = 0; i < x.length; i++) {
-//     var dataHour = localStorage.getItem(x[i]);
-//     // form - control
-//     $(".form" + x[i]).val(dataHour);
-// }
-
-// EVENT LISTENERS
-
-// $(".saveBtn").click(function () {
-//     event.preventDefault();
-//     var formValue = $(this).siblings(".form-control").val();
-//     console.log("This worked");
-//     var listItem = $(this).parent().data("hour");
-
-//     localStorage.setItem(listItem, formValue);
-// });
